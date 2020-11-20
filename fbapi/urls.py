@@ -1,7 +1,8 @@
 from django.contrib import admin
 from django.urls import path
-from .views import PageView
+from .views import *
 
 urlpatterns = [
-    path('pageinfo',PageView, name="PView"),
+    path('pageinfo',PageView, name="PageView"),
+    path('postinfo',PostView, name="PostView"),
 ]

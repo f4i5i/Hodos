@@ -3,16 +3,17 @@ from django.db import models
 # Create your models here.
 
 class Page(models.Model):
-
+    page_id = models.IntegerField()
     page_name = models.TextField()
     page_fans= models.IntegerField()
     page_url = models.URLField()
-    page_bio = models.TextField()
+    page_about = models.TextField()
 
     def __str__(self):
         return self.page_name
 
 class Posts(models.Model):
+    page_fid = models.ForeignKey(Page, related_name="pagefid",on_delete=models.PROTECT)
     post_id= models.CharField(primary_key=True, max_length=1000)
     post_photo = models.URLField()
     post_message = models.TextField()
